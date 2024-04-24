@@ -18,6 +18,10 @@ function calcIRPF(sallary) {
   return 0;
 }
 
+function calcFgts(sallary) {
+  return sallary * 0.08;
+}
+
 function calcInss(sallary) {
   if (sallary > 7786.02) {
     return (7786.02 * 0.14) - 181.18;
