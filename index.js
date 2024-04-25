@@ -42,9 +42,26 @@ function calcInss(salary) {
   return salary * 0.075;
 }
 
-function yearlyCLTsalary(salary, vr) {
+function yearlyCLTsalary(salary, vr = 0) {
   const fgts = calcFgts(salary);
   const inss = calcInss(salary);
   
-  const salaryDiscounted
+  const salaryDiscounted = salary - inss;
+
+  const irpf = calcIRPF(salaryDiscounted);
+
+  const monthSalary = salary + fgts + vr - inss - irpf;
+  
+  return monthSalary * 13.3
 }
+
+const formatNumber = new Intl.NumberFormat('pt-BR', { 
+  style: 'currency', 
+  currency: 'BRL', 
+  minimumFractionDigits: 2, 
+  maximumFractionDigits: 3 
+})
+
+const salary = 200;
+const clt = formatNumber.format(yearlyCLTsalary(salary));
+console.log({clt})
