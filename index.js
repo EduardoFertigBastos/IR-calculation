@@ -99,3 +99,5 @@ for (let i = 0; i < 23; i++) {
     'Simples > Fator R': (pj1 / pj2).toFixed(2)
   }) 
 }
+
+// hello mac world
